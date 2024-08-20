@@ -4,8 +4,6 @@ function App(){
 
   const [names, setNames] = useState([]);
 
-  const [selectedName, setSelectedName] = useState(null);
-
   const [selectedNameDetails, setSelectedNamedetails] = useState(null);
 
   // teching data causes infinite loop
@@ -18,18 +16,17 @@ function App(){
     .then((data) => setNames(data))
   }, []); // this is the dependancy array
 
-  useEffect(() => {
-    if(selectedName){
-      fetch(`/${selectedName}.json`)
+  // callback fn
+    const onSelectedNameChange = (name) => {
+      fetch(`/${name}.json`)
         .then((response) => response.json())
         .then((data) => setSelectedNamedetails(data))
-      }
-    }, [selectedName]); // this is the dependancy array
+    }
 
     return (
       <div>
         {/* Missing a key */}
-        {names.map((name, index) => (<button key={index} onClick={() => setSelectedName(name)}>{name}</button>))} 
+        {names.map((name, index) => (<button key={index} onClick={() => onSelectedNameChange(name)}>{name}</button>))} 
         <div>{JSON.stringify(selectedNameDetails)}</div>
       </div>
     )
