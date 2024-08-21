@@ -16,7 +16,7 @@ function App(){
     .then((data) => setNames(data))
   }, []); // this is the dependancy array
 
-  // callback fn
+  // callback function
     const onSelectedNameChange = (name) => {
       fetch(`/${name}.json`)
         .then((response) => response.json())
