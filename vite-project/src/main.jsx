@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from "./UseEffect.jsx"
+import App from "./UseRef.jsx"
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
