@@ -13,7 +13,7 @@ function App(){
 
   const inputRef = useRef(null);
 
-  // auto increment id
+  // auto increment id without refreshing (rerendering)
   const idRef = useRef(0); // but its not working fine
 
   const [names, setNames] = useState([
